@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone repo
-        run: git clone https://github.com/xiaopeng163/github-actions-python
+        run: |
+          git clone  https://github.com/JornsenChao/python_github_action-demo
+          cd python_github_action-demo
       - name: install pytest
         run: pip install pytest
       - name: run pytest
