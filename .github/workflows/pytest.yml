@@ -8,6 +8,11 @@ on:
   workflow_dispatch:
   pull_request:
     types: [opened]
+    # opened: a new user forked the main, do some edit, and create pull request; as a the maintainer of the main, i will manually approve this, then the new pull request will trigger this action (to prevent attack on running too many pull request on the main branch).
+    # After i approve and this pass the action test, and i merge the pull request, this user will become contributor (from previously "first-time contributor")
+    # And the next time this user create pull request from his own branch, the action will automatically run , without manual approve from me
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   pytest:
