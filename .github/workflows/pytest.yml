@@ -1,5 +1,11 @@
 name: pytest
-on: [push, workflow_dispatch]
+on:
+  # this has no filter, and will trigger on all branch
+  # [push, workflow_dispatch]
+  push:
+    branches:
+      - main
+    # workflow_dispatch:
 
 jobs:
   pytest:
